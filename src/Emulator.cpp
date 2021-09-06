@@ -38,7 +38,7 @@ namespace sn
 
         m_ppu.setInterruptCallback([&](){ m_cpu.interrupt(CPU::NMI); });
     }
-
+    
     void Emulator::run(std::string rom_path)
     {
         if (!m_cartridge.loadFromFile(rom_path))
@@ -181,4 +181,12 @@ namespace sn
         m_controller2.setKeyBindings(p2);
     }
 
+}
+
+int main(std::string rom_path) {
+    
+
+    sn::Emulator* emu = new sn::Emulator;
+    emu->run("C:\\Users\\marat\\source\\repos\\SimpleNES\\x64\\Debug\\smb.nes");
+    
 }
